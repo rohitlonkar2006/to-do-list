@@ -12,7 +12,13 @@
     <main class="app">
         <h1 class="title">To-Do List</h1>
 
-        <ul class="todo-list">
+        <form class="todo-form" id="todo-form" aria-label="Add todo">
+            <input id="new-todo" class="todo-input" type="text" placeholder="Add a new task…" aria-label="New todo" />
+            <button type="submit" class="add-btn">Add</button>
+            <button type="button" class="clear-btn" id="clear-completed">Clear completed</button>
+        </form>
+
+        <ul class="todo-list" id="todo-list">
             <li>
                 <input id="t1" type="checkbox" checked>
                 <label for="t1">Write project proposal</label>
@@ -47,7 +53,8 @@
             </li>
         </ul>
 
-        <p class="hint">Tip: toggle the checkboxes to mark items complete. (No JavaScript required.)</p>
+        <p class="hint">Tip: toggle the checkboxes to mark items complete. Use the input above to add tasks.</p>
+        <script src="script.js"></script>
     </main>
 </body>
 

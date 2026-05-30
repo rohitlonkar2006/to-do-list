@@ -42,6 +42,57 @@ body {
     letter-spacing: 0.4px;
 }
 
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
+    color: inherit;
+    outline: none;
+    transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.todo-input:focus {
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.12);
+    transform: translateY(-1px);
+}
+
+.add-btn,
+.clear-btn {
+    background: linear-gradient(135deg, var(--accent), #4f46e5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.clear-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+}
+
+.add-btn:hover,
+.clear-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
 .todo-list {
     list-style: none;
     padding: 0;
@@ -56,6 +107,70 @@ body {
     margin-bottom: 8px;
     background: var(--glass);
     backdrop-filter: blur(4px);
+    transition: transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+    will-change: transform, opacity;
+}
+
+.todo-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+}
+
+.todo-list li.fade-in-up {
+    animation: fadeInUp .28s ease both;
+}
+
+.todo-list li.slide-out {
+    animation: slideOut .28s ease both;
+}
+
+.todo-list li.shake {
+    animation: shake .32s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px) scale(.98);
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translateX(-1px);
+    }
+    20%,
+    80% {
+        transform: translateX(2px);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translateX(-4px);
+    }
+    40%,
+    60% {
+        transform: translateX(4px);
+    }
 }
 
 .todo-list input[type="checkbox"] {
@@ -82,6 +197,28 @@ body {
     text-decoration: line-through;
     color: var(--muted);
     opacity: 0.8;
+}
+
+.todo-list label.completed {
+    opacity: 0.8;
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffb4b4;
+    transform: translateY(-2px);
 }
 
 .todo-list label {
