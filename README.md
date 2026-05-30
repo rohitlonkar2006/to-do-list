@@ -1,4 +1,4 @@
-# To-Do List (Dynamic)
+# To-Do List (static)
 
 This is a small static to-do list demo created for quick personal use.
 
